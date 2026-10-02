@@ -1,5 +1,11 @@
 # land-water-eval
 
+A minimal land/water evaluation for language models. Given a latitude and
+longitude, the model predicts whether the point is on land or water. The fixed
+grid is 90 latitudes (`-89, -87, ..., 89`) by 180 longitudes
+(`-179, -177, ..., 179`): 16,200 independent points. The only reported metric
+is point accuracy.
+
 <p align="center">
   <img src="figures/land_water_comparison.png" alt="Four black-and-white global land-water maps" width="100%">
 </p>
@@ -9,12 +15,6 @@
 3. enabling reasoning mode (test time scaling) makes the capacity reach the highest ~90% acc. The Gemma model can use relevant geo knowledge to help classify land or water, eg, a position would probably be water if it is located west of California.
 
 It is still unclear why posttraining improves this ability with the same prompt as the pretrained model.
-
-A minimal land/water evaluation for language models. Given a latitude and
-longitude, the model predicts whether the point is on land or water. The fixed
-grid is 90 latitudes (`-89, -87, ..., 89`) by 180 longitudes
-(`-179, -177, ..., 179`): 16,200 independent points. The only reported metric
-is point accuracy.
 
 | Panel | Setting | Accuracy |
 | --- | --- | ---: |
