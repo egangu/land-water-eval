@@ -51,7 +51,7 @@ set this correction. `Unknown` was selected after comparing
 three null placeholders, so this panel is a calibration variant rather than an
 untouched Base-model result.
 
-**IT direct likelihood (P0).** `google/gemma-4-31B-it` receives its native
+**IT direct likelihood.** `google/gemma-4-31B-it` receives its native
 chat template with thinking disabled and a generation prompt:
 
 ```text
@@ -61,7 +61,7 @@ Latitude: {lat}° {N/S}, Longitude: {lon}° {E/W}. Classify this location as Lan
 No token is generated. At the first assistant position, the evaluator compares
 the complete likelihoods of `"Land"` and `"Water"`.
 
-**IT native reasoning (P2).** The same IT model uses its native chat template
+**IT native reasoning.** The same IT model uses its native chat template
 with thinking enabled:
 
 ```text
@@ -69,7 +69,7 @@ Latitude: {lat}° {N/S}, Longitude: {lon}° {E/W}. Is this location on land or w
 ```
 
 The evaluator greedily decodes once and parses only the final `Answer: Land`
-or `Answer: Water`; an unparseable response is counted wrong. P0 and P2 change
+or `Answer: Water`; an unparseable response is counted wrong. The direct and reasoning settings change
 both prompt/readout and whether the model can reason, so their difference is
 not a pure estimate of the effect of reasoning alone.
 
@@ -123,7 +123,7 @@ offline reconstruction of the published figure, install only `numpy Pillow matpl
 and run `python plot.py`: its
 defaults read the bundled compact maps in `results/` and write to `figures/`.
 
-## Ground truth and citation
+## Ground truth
 
 Labels are derived from the intermediate-resolution GSHHS shoreline component
 of GSHHG: lakes are `Water`, islands in lakes are `Land`, and locations inside
@@ -131,19 +131,6 @@ the Antarctic ice front are `Land`. GSHHG supplies WGS84 geographic coordinates
 and hierarchical polygons for land, lakes, and islands in lakes. See the
 [NOAA/NCEI shoreline documentation](https://www.ngdc.noaa.gov/mgg/shorelines/shorelines.html)
 and its [GSHHG source distribution](https://github.com/GenericMappingTools/gshhg-gmt).
-
-Please cite:
-
-> Wessel, P., & Smith, W. H. F. (1996). A global, self-consistent,
-> hierarchical, high-resolution shoreline database. *Journal of Geophysical
-> Research: Solid Earth, 101*(B4), 8741–8743.
-> https://doi.org/10.1029/96JB00104
-
-See [NOTICE](NOTICE) and the bundled upstream license texts
-([data/COPYING.LESSER](data/COPYING.LESSER), [data/COPYING](data/COPYING)) for
-data attribution and licensing scope. The project code is released under the
-[MIT License](LICENSE); that license does not cover the derived ground-truth
-data.
 
 ## Cite this repository
 
