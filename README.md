@@ -19,9 +19,9 @@ is point accuracy.
 | Panel | Setting | Accuracy |
 | --- | --- | ---: |
 | Ground truth | GSHHG-derived labels | — |
-| Gemma 4 Base | direct likelihood readout | 73.98% |
-| Gemma 4 IT w/o reasoning | native-chat direct likelihood readout | 82.81% |
-| Gemma 4 IT w/ reasoning | native reasoning and greedy answer | 90.63% |
+| Gemma 4 31B Base | direct likelihood readout | 73.98% |
+| Gemma 4 31B IT w/o reasoning | native-chat direct likelihood readout | 82.81% |
+| Gemma 4 31B IT w/ reasoning | native reasoning and greedy answer | 90.63% |
 
 All maps are raw 90 x 180 predictions (white = land, black = water); no
 smoothing or geographic post-processing is applied.
@@ -33,7 +33,7 @@ tool use, image input, or few-shot context. Inference uses BF16. The reasoning
 condition uses greedy decoding with temperature 0; the two direct conditions
 generate zero tokens.
 
-**Base direct likelihood.** `google/gemma-4-31B` receives no chat template:
+**Gemma 4 31B Base.** `google/gemma-4-31B` receives no chat template:
 
 ```text
 Latitude: {lat}° {N/S}, Longitude: {lon}° {E/W}.
@@ -51,7 +51,7 @@ set this correction. `Unknown` was selected after comparing
 three null placeholders, so this panel is a calibration variant rather than an
 untouched Base-model result.
 
-**IT direct likelihood.** `google/gemma-4-31B-it` receives its native
+**Gemma 4 31B IT w/o reasoning.** `google/gemma-4-31B-it` receives its native
 chat template with thinking disabled and a generation prompt:
 
 ```text
@@ -61,7 +61,7 @@ Latitude: {lat}° {N/S}, Longitude: {lon}° {E/W}. Classify this location as Lan
 No token is generated. At the first assistant position, the evaluator compares
 the complete likelihoods of `"Land"` and `"Water"`.
 
-**IT native reasoning.** The same IT model uses its native chat template
+**Gemma 4 31B IT w/ reasoning.** The same IT model uses its native chat template
 with thinking enabled:
 
 ```text
