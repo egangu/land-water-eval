@@ -1,0 +1,2 @@
+data/*.csv whitespace=cr-at-eol
+figures/*.svg whitespace=-blank-at-eol

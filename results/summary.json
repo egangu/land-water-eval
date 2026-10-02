@@ -1,0 +1,32 @@
+{
+  "base": {
+    "model": "google/gemma-4-31B",
+    "revision": "5bbc2fb1c1b2c611d06e3d9f23c170ba21659d89",
+    "correct": 11985,
+    "total": 16200,
+    "accuracy": 0.7398148148148148,
+    "invalid": 0,
+    "bias": 0.43894386291503906,
+    "max_new_tokens": 0
+  },
+  "direct": {
+    "model": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "correct": 13416,
+    "total": 16200,
+    "accuracy": 0.8281481481481482,
+    "invalid": 0,
+    "bias": 0.0,
+    "max_new_tokens": 0
+  },
+  "reasoning": {
+    "model": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "correct": 14682,
+    "total": 16200,
+    "accuracy": 0.9062962962962963,
+    "invalid": 54,
+    "bias": 0.0,
+    "max_new_tokens": 8192
+  }
+}
