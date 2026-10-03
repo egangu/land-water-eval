@@ -125,12 +125,15 @@ defaults read the bundled compact maps in `results/` and write to `figures/`.
 
 ## Ground truth
 
-Labels are derived from the intermediate-resolution GSHHS shoreline component
-of GSHHG: lakes are `Water`, islands in lakes are `Land`, and locations inside
+Labels are sampled directly from the unmodified **GSHHG 2.3.7 intermediate (i)**
+shoreline polygons: lakes are `Water`, islands in lakes are `Land`, and locations inside
 the Antarctic ice front are `Land`. GSHHG supplies WGS84 geographic coordinates
 and hierarchical polygons for land, lakes, and islands in lakes. See the
 [NOAA/NCEI shoreline documentation](https://www.ngdc.noaa.gov/mgg/shorelines/shorelines.html)
 and its [GSHHG source distribution](https://github.com/GenericMappingTools/gshhg-gmt).
+
+[Download the 2° (16,200-point) and 1° (64,800-point) CSVs](data/README.md).
+The published evaluation uses the 2° grid.
 
 ## Cite this repository
 
