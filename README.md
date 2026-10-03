@@ -7,7 +7,7 @@ grid is 90 latitudes (`-89, -87, ..., 89`) by 180 longitudes
 is point accuracy.
 
 <p align="center">
-  <img src="figures/land_water_comparison.png" alt="Four black-and-white global land-water maps" width="100%">
+  <img src="figures/land_water_comparison.png" alt="Four navy-and-ivory global land-water maps" width="100%">
 </p>
 
 1. pretraining gives the model a basic geo perception. Gemma-4-31B-Base gets ~74% acc.
@@ -23,7 +23,7 @@ It is still unclear why posttraining improves this ability with the same prompt 
 | Gemma 4 31B IT w/o reasoning | native-chat direct likelihood readout | 82.81% |
 | Gemma 4 31B IT w/ reasoning | native reasoning and greedy answer | 90.63% |
 
-All maps are raw 90 x 180 predictions (white = land, black = water); no
+All maps are raw 90 x 180 predictions (ivory = land, navy = water); no
 smoothing or geographic post-processing is applied.
 
 ## Protocol

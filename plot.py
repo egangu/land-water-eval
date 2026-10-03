@@ -28,15 +28,15 @@ def plot(args):
         missing = pixels[:,:,3] == 0
         display = pixels[:,:,0].copy()
         display[missing] = 255
-        ax.imshow(display,cmap='gray',vmin=0,vmax=255,interpolation='nearest',origin='upper')
+        ax.imshow(display,cmap=matplotlib.colors.ListedColormap(['#243E50','#F5F1E5']),vmin=0,vmax=255,interpolation='nearest',origin='upper')
         for row,col in np.argwhere(missing):
-            ax.plot([col-.38,col+.38],[row-.38,row+.38],color='black',lw=.4,solid_capstyle='butt')
-            ax.plot([col-.38,col+.38],[row+.38,row-.38],color='black',lw=.4,solid_capstyle='butt')
+            ax.plot([col-.38,col+.38],[row-.38,row+.38],color='#243E50',lw=.4,solid_capstyle='butt')
+            ax.plot([col-.38,col+.38],[row+.38,row-.38],color='#243E50',lw=.4,solid_capstyle='butt')
         ax.set(xlim=(-.5,179.5),ylim=(89.5,-.5),xticks=[],yticks=[])
         for spine in ax.spines.values(): spine.set_linewidth(.65)
         title = name if accuracy is None else f'{name} · {accuracy*100:.2f}%'
         ax.text(0,1.065,title,transform=ax.transAxes,ha='left',va='bottom',fontsize=14,fontweight='semibold')
-    fig.text(.5,.034,'2° grid  ·  White: land  ·  Black: water  ·  ×: no answer',ha='center',fontsize=10)
+    fig.text(.5,.034,'2° grid  ·  Ivory: land  ·  Navy: water  ·  ×: no answer',ha='center',fontsize=10)
     for extension in ('png','pdf','svg'): fig.savefig(out/f'land_water_comparison.{extension}',dpi=240)
     plt.close(fig)
 if __name__ == '__main__':
